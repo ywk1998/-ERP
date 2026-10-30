@@ -1,0 +1,99 @@
+/* ===== 全局样式 ===== */
+:root {
+  --tq-primary: #4080ff;      /* 主色：按钮/高亮/选中态（与登录页一致） */
+  --tq-primary-deep: #008aff; /* 侧边栏背景（科技蓝，用户指定色值） */
+  --tq-primary-mid: #2f54eb;  /* 中间色：登录页渐变（备用） */
+  --tq-bg: #f5f7fa;
+  --tq-text: #303133;
+  --tq-text-secondary: #909399;
+
+  /* 中性灰：hover / 表头 / 禁用态等中性底色（用户指定） */
+  --tq-gray: #f0f0f0;                         /* 中性灰实色（表头/禁用态等） */
+  --tq-gray-hover: rgba(240, 240, 240, 0.5);  /* 菜单 hover 背景：#F0F0F0 透明一半 */
+  --tq-menu-text: #f0f0f0;                    /* 菜单未选中文字色（浅灰实色） */
+
+  /* 全局“选中态”规范：所有模块（含后续新增）统一使用 */
+  --tq-active-bg: #cce8ff;       /* 选中背景色（用户指定） */
+  --tq-active-color: #008aff;    /* 选中文字/图标色 */
+  --tq-active-weight: 600;       /* 选中文字加粗 */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  color: var(--tq-text);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ===== 全局选中态：菜单项 / 子菜单 / 表格行 / 标签 ===== */
+.el-menu-item.is-active,
+.el-sub-menu.is-active > .el-sub-menu__title,
+.el-table__row.current-row > td.el-table__cell,
+.el-tabs__item.is-active {
+  background: var(--tq-active-bg) !important;
+  color: var(--tq-active-color) !important;
+  font-weight: var(--tq-active-weight);
+}
+
+/* ===== 全局菜单未选中文字色（所有模块统一继承） ===== */
+.el-menu-item,
+.el-sub-menu__title {
+  color: var(--tq-menu-text);
+}
+
+.el-menu-item .el-icon,
+.el-sub-menu__title .el-icon {
+  color: var(--tq-menu-text);
+}
+
+/* ===== 全局 hover 态：菜单项 / 子菜单（半透明浅灰底，后续模块统一继承） ===== */
+.el-menu-item:hover,
+.el-sub-menu__title:hover {
+  background: var(--tq-gray-hover) !important;
+  color: var(--tq-active-color);
+}
+
+.el-menu-item:hover .el-icon,
+.el-sub-menu__title:hover .el-icon {
+  color: var(--tq-active-color);
+}
+
+/* 菜单选中项图标跟随文字色 */
+.el-menu-item.is-active .el-icon,
+.el-sub-menu.is-active > .el-sub-menu__title .el-icon {
+  color: var(--tq-active-color) !important;
+}
+
+/* 选中态鼠标悬停时不被默认白色覆盖 */
+.el-menu-item.is-active:hover,
+.el-sub-menu.is-active > .el-sub-menu__title:hover {
+  background: var(--tq-active-bg) !important;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c0c4cc;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
